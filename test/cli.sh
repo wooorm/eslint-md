@@ -2,6 +2,8 @@
 
 typeset -i tests=0
 
+printf "`bash --version`\n"
+
 function it {
   let tests+=1;
   description="$1";
@@ -25,18 +27,20 @@ function assertNot {
   fi
 }
 
-valid="test/fixtures/Valid.md"
-invalid="test/fixtures/Invalid.md"
-validInBrowser="test/fixtures/reset/Valid-in-browser.md"
-validInNode="test/fixtures/reset/Valid-in-node.md"
+valid="./test/fixtures/Valid.md"
+invalid="./test/fixtures/Invalid.md"
+validInBrowser="./test/fixtures/reset/Valid-in-browser.md"
+validInNode="./test/fixtures/reset/Valid-in-node.md"
 validc="$(cat $valid)"
 invalidc="$(cat $invalid)"
 helpmessage="$(./bin/eslint-md --help)";
 
 it "Should accept a file"
   result=`./bin/eslint-md "$valid"`
-  printf "\$?: '$?'"
-  assert "$?" "0"
+  code=$?
+  printf "\$?: '$code'\n"
+  printf "\$result: '$result'\n"
+  assert "$code" "0"
 
 it "Should fail on a file with errors"
   result=`./bin/eslint-md "$invalid"`
