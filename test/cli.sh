@@ -35,11 +35,11 @@ invalidc="$(cat $invalid)"
 helpmessage="$(./bin/eslint-md --help)";
 
 it "Should accept a file"
-  ./bin/eslint-md $valid > /dev/null
+  result=`./bin/eslint-md "$valid"`
   assert "$?" "0"
 
 it "Should fail on a file with errors"
-  ./bin/eslint-md $invalid > /dev/null
+  result=`./bin/eslint-md "$invalid"`
   assertNot "$?" "0"
 
 it "Should NOT fail on a file with warning"
