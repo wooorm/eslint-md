@@ -1,0 +1,5 @@
+instrumentation:
+  excludes:
+    - lib/cli-engine.js
+    - lib/cli.js
+    - index.js

@@ -1,0 +1,10 @@
+.*
+*.log
+*.sh
+*.png
+coverage/
+doc/
+node_modules/
+script/
+test/
+History.md
