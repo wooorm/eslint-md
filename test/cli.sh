@@ -1,5 +1,4 @@
-#!/bin/sh
-#!/bin/bash
+#!/usr/bin/env bash
 
 typeset -i tests=0
 
@@ -36,6 +35,7 @@ helpmessage="$(./bin/eslint-md --help)";
 
 it "Should accept a file"
   result=`./bin/eslint-md "$valid"`
+  printf "\$?: '$?'"
   assert "$?" "0"
 
 it "Should fail on a file with errors"
