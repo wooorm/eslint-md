@@ -1,64 +1,10 @@
 {
   "name": "eslint-md",
-  "version": "0.1.0",
-  "description": "Lint JavaScript in markdown code-blocks with ESLint",
+  "version": "0.2.0",
+  "description": "Deprecated",
   "license": "MIT",
-  "keywords": [
-    "markdown",
-    "markup",
-    "ast",
-    "eslint",
-    "lint",
-    "javascript",
-    "ecmascript",
-    "espree",
-    "bin",
-    "cli"
-  ],
-  "dependencies": {
-    "concat-stream": "^1.4.6",
-    "debug": "^2.1.1",
-    "eslint": "^0.14.0",
-    "mdast": "^0.3.0",
-    "mkdirp": "^0.5.0",
-    "object-assign": "^2.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wooorm/eslint-md.git"
-  },
-  "author": "Christopher Jeffrey",
-  "contributors": [
-    "Titus Wormer <tituswormer@gmail.com>"
-  ],
-  "directories": {
-    "man": "./man",
-    "bin": "./bin"
-  },
-  "devDependencies": {
-    "istanbul": "^0.3.0",
-    "jscs": "^1.0.0",
-    "jscs-jsdoc": "^0.4.0",
-    "marked-man": "^0.1.0",
-    "mocha": "^2.0.0"
-  },
-  "scripts": {
-    "test-api": "_mocha --check-leaks test/index.js",
-    "test-cli": "bash test/cli.sh",
-    "test-coveralls": "istanbul cover _mocha --report lcovonly -- --check-leaks test/index.js",
-    "test-coverage": "istanbul cover _mocha -- -- test/index.js",
-    "test-travis": "npm run test-coveralls && npm run test-cli",
-    "test": "npm run test-api && npm run test-cli",
-    "lint-api": "eslint lib/eslint-md.js lib/options.js",
-    "lint-script": "eslint script/build.js",
-    "lint-test": "eslint --env mocha test/index.js",
-    "lint-style": "jscs --reporter inline lib/eslint-md.js lib/options.js script/build.js test/index.js",
-    "lint-md": "./bin/eslint-md Readme.md doc/eslint-md.1.md",
-    "lint": "npm run lint-md && npm run lint-api && npm run lint-script && npm run lint-test && npm run lint-style",
-    "make": "npm run lint && npm run test-coverage",
-    "build-man": "marked-man doc/eslint-md.1.md > man/eslint-md.1",
-    "build-lib": "node script/build.js",
-    "build": "npm run build-lib && npm run build-man",
-    "prepublish": "npm run build"
   }
 }
